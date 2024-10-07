@@ -16,22 +16,11 @@ const axios_1 = __importDefault(require("axios"));
 function getPosts() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { data } = yield axios_1.default.get('https://jsonplaceholder.typicode.com/posts', {
-                headers: {
-                    Accept: 'application/json',
-                },
-            });
-            return data;
+            const response = yield axios_1.default.get('https://jsonplaceholder.typicode.com/posts');
+            console.log(response.data);
         }
         catch (error) {
-            if (axios_1.default.isAxiosError(error)) {
-                console.log('error message: ', error.message);
-                return error.message;
-            }
-            else {
-                console.log('unexpected error: ', error);
-                return 'An unexpected error occurred';
-            }
+            console.error('Error fetching post:', error);
         }
     });
 }

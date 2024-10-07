@@ -1,7 +1,5 @@
-import {IPost} from "./Posts";
+import { IPost } from '../Posts/posts.interface';
 
-declare module capitalizeTitles {
-    var capitalizeTitles: any;
-}
+declare function capitalizeTitles(posts: IPost[]): string[];
 
-module.exports = capitalizeTitles();
+export = capitalizeTitles;

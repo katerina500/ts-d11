@@ -1,9 +1,5 @@
-function capitalizeTitles(IPost) {
-
-    return IPost.map(test => {
-        const filteredPosts = test.title.toUpperCase();
-        return filteredPosts;
-    })
-}
-
-module.exports = capitalizeTitles();
+function capitalizeTitles(posts) {
+    return posts.map(post => post.title.toUpperCase());
+  }
+  
+  module.exports = capitalizeTitles;

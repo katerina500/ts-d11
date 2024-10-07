@@ -1,16 +1,15 @@
-import axios from "axios";
-
-async function getPosts() {
-  try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    console.log(response.data);
-  } catch (error) {
-    console.error('Error fetching post:', error);
-  }
-}
-
+  import axios from "axios";
+  import { IPost } from './posts.interface';
   
-
-  export {getPosts};
-
-
+  async function getPosts(): Promise<{ data: IPost[] }> {
+    try {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      return response; // Возвращаем результат
+    } catch (error) {
+      console.error('Error fetching post:', error);
+      throw error; // Бросаем ошибку, чтобы её можно было обработать в вызывающем коде
+    }
+  }
+  
+  export { getPosts };
+  
